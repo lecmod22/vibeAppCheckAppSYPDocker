@@ -24,4 +24,8 @@ public class Rating {
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "event_id", nullable = false)
+    private Event event;
 }
