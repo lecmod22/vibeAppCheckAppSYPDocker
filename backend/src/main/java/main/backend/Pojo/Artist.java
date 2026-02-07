@@ -3,6 +3,9 @@ package main.backend.Pojo;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "artists")
 @Data
@@ -24,5 +27,8 @@ public class Artist {
 
     @Column(name = "image_url")
     private String imageUrl;
+
+    @ManyToMany(mappedBy = "artists")
+    private Set<Event> events = new HashSet<>();
 }
 
