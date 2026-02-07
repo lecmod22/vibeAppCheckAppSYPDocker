@@ -30,6 +30,7 @@ public class RatingService {
                 .toList();
     }
 
+    @Transactional
     public RatingDto addRating(Long eventId, CreateRatingDto req) {
         if (req.getStars() < 1 || req.getStars() > 5) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Stars must be between 1 and 5");
