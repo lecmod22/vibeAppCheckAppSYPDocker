@@ -1,0 +1,92 @@
+[
+  {
+    "firstName": "Luna",
+    "lastName": "Vega",
+    "description": "Electro-pop artist known for atmospheric live shows.",
+    "imageUrl": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Max",
+    "lastName": "Stone",
+    "description": "Rock guitarist with a raw and energetic sound.",
+    "imageUrl": "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Nova",
+    "lastName": "Reign",
+    "description": "DJ mixing techno and house beats.",
+    "imageUrl": "https://images.unsplash.com/photo-1518972559570-7cc1309f3229?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Leo",
+    "lastName": "Hart",
+    "description": "Indie songwriter with emotional lyrics.",
+    "imageUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Ava",
+    "lastName": "Skye",
+    "description": "Pop vocalist with viral social media hits.",
+    "imageUrl": "https://images.unsplash.com/photo-1485579149621-3123dd979885?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Jax",
+    "lastName": "River",
+    "description": "Experimental electronic music producer.",
+    "imageUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Mila",
+    "lastName": "Noir",
+    "description": "Dark pop artist blending art and sound.",
+    "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Theo",
+    "lastName": "Blaze",
+    "description": "Festival DJ specializing in EDM drops.",
+    "imageUrl": "https://images.unsplash.com/photo-1518976024611-4883c2c9c91b?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Ivy",
+    "lastName": "Moon",
+    "description": "Dream-pop artist with soft vocals.",
+    "imageUrl": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Ryan",
+    "lastName": "Volt",
+    "description": "High-energy techno performer.",
+    "imageUrl": "https://images.unsplash.com/photo-1513863324976-4a7dd0a61a29?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Zoe",
+    "lastName": "Ray",
+    "description": "Alternative pop artist with visual storytelling.",
+    "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Finn",
+    "lastName": "Echo",
+    "description": "Minimalist electronic composer.",
+    "imageUrl": "https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Nina",
+    "lastName": "Lux",
+    "description": "Luxury lounge and chillout performer.",
+    "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Kai",
+    "lastName": "Storm",
+    "description": "Bass-heavy drum & bass DJ.",
+    "imageUrl": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=60"
+  },
+  {
+    "firstName": "Ella",
+    "lastName": "Waves",
+    "description": "Singer-songwriter inspired by ocean vibes.",
+    "imageUrl": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60"
+  }
+]
