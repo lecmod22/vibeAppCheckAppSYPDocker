@@ -1,9 +1,7 @@
 package main.backend.Controller;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import main.backend.Dto.ArtistDto;
-import main.backend.Pojo.Artist;
 import main.backend.Services.ArtistService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
