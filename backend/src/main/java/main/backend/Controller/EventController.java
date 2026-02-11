@@ -7,8 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/events")
@@ -19,5 +22,10 @@ public class EventController {
     @GetMapping
     public ResponseEntity<Page<EventDto>> getAllEvents(Pageable pageable) {
         return ResponseEntity.ok(eventService.getAllEvents(pageable));
+    }
+
+    @GetMapping
+    public ResponseEntity<EventDto> getEventById(@PathVariable Long eventId) {
+        return ResponseEntity.ok(eventService.getEventById(eventId));
     }
 }
