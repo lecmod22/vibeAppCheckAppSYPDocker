@@ -19,7 +19,7 @@ import java.util.List;
 public class EventController {
     private final EventService eventService;
 
-    @GetMapping("/events")
+    @GetMapping
     public ResponseEntity<Page<EventDto>> getAllEvents(Pageable pageable) {
         return ResponseEntity.ok(eventService.getAllEvents(pageable));
     }
