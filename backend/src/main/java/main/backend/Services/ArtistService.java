@@ -32,6 +32,7 @@ public class ArtistService {
 
     private ArtistDto toDto(Artist a) {
         ArtistDto dto = new ArtistDto();
+        dto.setId(a.getId());
         dto.setFirstname(a.getFirstname());
         dto.setLastname(a.getLastname());
         dto.setDescription(a.getDescription());
