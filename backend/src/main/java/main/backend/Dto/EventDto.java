@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class EventDto {
-    private int id;
+    private Long id;
     private String title;
     private String location;
     private LocalDate eventDate;
