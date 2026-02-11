@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Neon Nights Festival",
+    "location": "Berlin",
+    "eventDate": "2025-06-12",
+    "imageUrl": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Nova Reign", "Theo Blaze", "Ryan Volt"],
+    "ratings": [
+      { "stars": 5, "comment": "Incredible atmosphere!", "createdAt": "2025-06-13T10:15:00" },
+      { "stars": 4, "comment": "Great visuals and sound.", "createdAt": "2025-06-13T11:20:00" }
+    ]
+  },
+  {
+    "title": "Midnight Echoes",
+    "location": "Hamburg",
+    "eventDate": "2025-07-03",
+    "imageUrl": "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Luna Vega", "Ivy Moon"],
+    "ratings": [
+      { "stars": 5, "comment": "Beautiful and emotional.", "createdAt": "2025-07-04T09:00:00" }
+    ]
+  },
+  {
+    "title": "Rock the Harbor",
+    "location": "Hamburg",
+    "eventDate": "2025-08-10",
+    "imageUrl": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Max Stone", "Leo Hart"],
+    "ratings": [
+      { "stars": 4, "comment": "Solid rock show.", "createdAt": "2025-08-11T08:30:00" },
+      { "stars": 3, "comment": "Too loud at times.", "createdAt": "2025-08-11T09:10:00" }
+    ]
+  },
+  {
+    "title": "Popwave Live",
+    "location": "Munich",
+    "eventDate": "2025-09-01",
+    "imageUrl": "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Ava Skye", "Zoe Ray"],
+    "ratings": [
+      { "stars": 5, "comment": "Super catchy and fun!", "createdAt": "2025-09-01T22:00:00" },
+      { "stars": 4, "comment": "Amazing crowd energy.", "createdAt": "2025-09-02T08:00:00" }
+    ]
+  },
+  {
+    "title": "Bass Impact",
+    "location": "Cologne",
+    "eventDate": "2025-10-05",
+    "imageUrl": "https://images.unsplash.com/photo-1518972559570-7cc1309f3229?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Kai Storm", "Ryan Volt"],
+    "ratings": [
+      { "stars": 5, "comment": "Bass was insane!", "createdAt": "2025-10-06T01:00:00" },
+      { "stars": 4, "comment": "Very intense night.", "createdAt": "2025-10-06T01:30:00" }
+    ]
+  },
+  {
+    "title": "Electric Dreams",
+    "location": "Frankfurt",
+    "eventDate": "2025-06-28",
+    "imageUrl": "https://images.unsplash.com/photo-1513863324976-4a7dd0a61a29?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Finn Echo", "Jax River"],
+    "ratings": [
+      { "stars": 4, "comment": "Very atmospheric.", "createdAt": "2025-06-29T10:00:00" }
+    ]
+  },
+  {
+    "title": "Indie Sunset",
+    "location": "Stuttgart",
+    "eventDate": "2025-07-20",
+    "imageUrl": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Leo Hart", "Ella Waves"],
+    "ratings": [
+      { "stars": 5, "comment": "Perfect summer vibes.", "createdAt": "2025-07-21T09:30:00" },
+      { "stars": 4, "comment": "Loved the acoustic set.", "createdAt": "2025-07-21T10:15:00" }
+    ]
+  },
+  {
+    "title": "Dark Pop Affair",
+    "location": "Leipzig",
+    "eventDate": "2025-08-22",
+    "imageUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Mila Noir", "Zoe Ray"],
+    "ratings": [
+      { "stars": 4, "comment": "Great visuals.", "createdAt": "2025-08-23T08:45:00" }
+    ]
+  },
+  {
+    "title": "EDM Arena",
+    "location": "Düsseldorf",
+    "eventDate": "2025-09-18",
+    "imageUrl": "https://images.unsplash.com/photo-1518976024611-4883c2c9c91b?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Theo Blaze", "Nova Reign", "Jax River", "Kai Storm"],
+    "ratings": [
+      { "stars": 5, "comment": "Non-stop energy!", "createdAt": "2025-09-19T00:30:00" },
+      { "stars": 4, "comment": "Amazing drops.", "createdAt": "2025-09-19T01:10:00" }
+    ]
+  },
+  {
+    "title": "Chillout Lounge Night",
+    "location": "Berlin",
+    "eventDate": "2025-10-12",
+    "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=60",
+    "artists": ["Nina Lux", "Ivy Moon", "Ava Skye"],
+    "ratings": [
+      { "stars": 4, "comment": "Relaxing and classy.", "createdAt": "2025-10-13T09:00:00" }
+      { "stars": 5, "comment": "Absolutely insane atmosphere!", "createdAt": "2025-10-13T10:15:00" },
+      { "stars": 4, "comment": "Great music and lights.", "createdAt": "2025-10-13T11:20:00" }
+    ]
+  }
+]
