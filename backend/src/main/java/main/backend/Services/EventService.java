@@ -35,6 +35,7 @@ public class EventService {
 
     private EventDto toDtoWithStats(Event e) {
         EventDto dto = new EventDto();
+        dto.setId(e.getId());
         dto.setTitle(e.getTitle());
         dto.setLocation(e.getLocation());
         dto.setEventDate(e.getEventDate());
