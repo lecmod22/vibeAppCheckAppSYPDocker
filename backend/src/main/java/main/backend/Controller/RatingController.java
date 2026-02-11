@@ -21,7 +21,7 @@ public class RatingController {
         return ResponseEntity.ok(ratingService.getRatingsForEvent(eventId));
     }
 
-    @PostMapping("/api/ratings/{eventId}")
+    @PostMapping("/{eventId}")
     public ResponseEntity<RatingDto> addRating(@PathVariable Long eventId, @RequestBody CreateRatingDto createRatingDto) {
         RatingDto created = ratingService.addRating(eventId, createRatingDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
