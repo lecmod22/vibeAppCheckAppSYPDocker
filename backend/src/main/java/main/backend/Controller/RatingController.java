@@ -17,7 +17,7 @@ import java.util.List;
 public class RatingController {
     private final RatingService ratingService;
 
-    @GetMapping("/api/ratings/event/{eventId}")
+    @GetMapping("/event/{eventId}")
     public ResponseEntity<List<RatingDto>> getRatingsForEvent(@PathVariable Long eventId) {
         return ResponseEntity.ok(ratingService.getRatingsForEvent(eventId));
     }
