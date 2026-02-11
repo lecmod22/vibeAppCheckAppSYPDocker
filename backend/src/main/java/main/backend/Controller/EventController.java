@@ -26,4 +26,9 @@ public class EventController {
     public ResponseEntity<EventDto> getEventById(@PathVariable Long eventId) {
         return ResponseEntity.ok(eventService.getEventById(eventId));
     }
+
+    @GetMapping("/artist/{artistId}")
+    public ResponseEntity<Page<EventDto>> getEventsByArtist(@PathVariable Long artistId, Pageable pageable) {
+        return ResponseEntity.ok(eventService.getEventsByArtist(artistId, pageable));
+    }
 }
