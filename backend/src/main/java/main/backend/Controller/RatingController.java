@@ -1,13 +1,12 @@
 package main.backend.Controller;
 
 import lombok.RequiredArgsConstructor;
+import main.backend.Dto.CreateRatingDto;
 import main.backend.Dto.RatingDto;
 import main.backend.Services.RatingService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +19,11 @@ public class RatingController {
     @GetMapping("/event/{eventId}")
     public ResponseEntity<List<RatingDto>> getRatingsForEvent(@PathVariable Long eventId) {
         return ResponseEntity.ok(ratingService.getRatingsForEvent(eventId));
+    }
+
+    @PostMapping("/api/ratings/{eventId}")
+    public ResponseEntity<RatingDto> addRating(@PathVariable Long eventId, @RequestBody CreateRatingDto createRatingDto) {
+        RatingDto created = ratingService.addRating(eventId, createRatingDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 }
