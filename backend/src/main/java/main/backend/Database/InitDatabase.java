@@ -49,6 +49,8 @@ public class InitDatabase {
                 Artist saved = artistRepository.save(entity);
                 artistByJsonId.put(a.id(), saved);
             }
+
+            List<EventJson> eventJson = readList(mapper, "/vibe_event.json", EventJson.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
