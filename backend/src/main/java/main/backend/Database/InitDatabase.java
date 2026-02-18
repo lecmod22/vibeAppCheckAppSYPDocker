@@ -106,6 +106,12 @@ public class InitDatabase {
         }
     }
 
+    private String fullName(String firstName, String lastName) {
+        String fn = firstName == null ? "" : firstName.trim();
+        String ln = lastName == null ? "" : lastName.trim();
+        return (fn + " " + ln).trim();
+    }
+
     private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
         InputStream inputStream = this.getClass().getResourceAsStream(resourcePath);
         if (inputStream == null) {
