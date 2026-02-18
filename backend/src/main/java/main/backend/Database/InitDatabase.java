@@ -111,6 +111,12 @@ public class InitDatabase {
         }
     }
 
+    private String key(String title, String date, String location) {
+        return (title == null ? "" : title.trim()) + "|" +
+                (date == null ? "" : date.trim()) + "|" +
+                (location == null ? "" : location.trim());
+    }
+
     private <T> List<T> readListIfExists(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
         InputStream inputStream = this.getClass().getResourceAsStream(resourcePath);
         if (inputStream == null) return null;
@@ -135,8 +141,6 @@ public class InitDatabase {
     ) {}
 
     public record RatingJson(
-            Long id,
-            Long eventId,
             int stars,
             String comment,
             LocalDateTime createdAt
