@@ -57,6 +57,7 @@ public class InitDatabase {
             for (EventJson e : eventJson) {
                 Event entity = new Event();
                 entity.setTitle(e.title());
+                entity.setLocation(e.location());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
