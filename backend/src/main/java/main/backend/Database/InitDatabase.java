@@ -56,7 +56,6 @@ public class InitDatabase {
             int eventCount = 0;
             for (EventJson e : eventJson) {
                 Event entity = new Event();
-                entity.setTitle(e.title());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
