@@ -1,0 +1,26 @@
+###
+GET http://localhost:8081/api/artists
+
+###
+GET http://localhost:8081/api/artists/{{artistId}}
+
+###
+GET http://localhost:8081/api/events?page=0&size=10
+
+###
+GET http://localhost:8081/api/events/{{eventId}}
+
+###
+GET http://localhost:8081/api/events/artist/{{artistId}}?page=0&size=10
+
+###
+GET http://localhost:8081/api/ratings/event/{{eventId}}
+
+###
+POST http://localhost:8081/api/ratings/{{eventId}}
+Content-Type: application/json
+
+{
+  "stars": 5,
+  "comment": "Test rating"
+}
