@@ -94,6 +94,10 @@ public class InitDatabase {
         try {
             ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
             List<RatingJson> ratingJson = readListIfExists(mapper, "/vibe_rating.json", RatingJson.class);
+            if (ratingJson == null) {
+                log.info("No vibe_rating.json found, skipping ratings import (ratings can be created via POST)");
+                return;
+            }
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
