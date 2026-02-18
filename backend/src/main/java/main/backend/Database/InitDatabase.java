@@ -104,6 +104,8 @@ public class InitDatabase {
                 log.warn("Missing /vibe_event.json -> cannot map ratings to events. Skipping ratings import.");
                 return;
             }
+
+            Map<String, Event> eventKeyToDbEvent = new HashMap<>();
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
