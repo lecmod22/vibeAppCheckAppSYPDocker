@@ -61,6 +61,8 @@ public class InitDatabase {
             List<EventJson> eventJson = readList(mapper, "/vibe_event.json", EventJson.class);
             if (eventJson == null) throw new IOException("Missing /vibe_event.json");
 
+            Map<Long, Event> eventByJsonId = new HashMap<>();
+
             int eventCount = 0;
             for (EventJson e : eventJson) {
                 Event entity = new Event();
