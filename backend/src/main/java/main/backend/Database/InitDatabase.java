@@ -43,6 +43,7 @@ public class InitDatabase {
                 Artist entity = new Artist();
                 entity.setFirstname(a.firstname());
                 entity.setLastname(a.lastname());
+                entity.setDescription(a.description());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
