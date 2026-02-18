@@ -90,6 +90,10 @@ public class InitDatabase {
         }
     }
 
+    private void importRatingsIfFileExists() {
+
+    }
+
     private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
         InputStream inputStream = this.getClass().getResourceAsStream(resourcePath);
         if (inputStream == null) {
