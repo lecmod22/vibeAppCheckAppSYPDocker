@@ -41,6 +41,7 @@ public class InitDatabase {
 
             for (ArtistJson a : artistJson) {
                 Artist entity = new Artist();
+                entity.setFirstname(a.firstname());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
