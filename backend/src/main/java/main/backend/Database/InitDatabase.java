@@ -37,7 +37,7 @@ public class InitDatabase {
         if (inputStream == null) {
             throw new IOException("Resource not found: " + resourcePath);
         }
-        return null;
+        return mapper.readerForListOf(clazz).readValue(inputStream);
     }
 
     public record ArtistJson(
