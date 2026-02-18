@@ -45,6 +45,8 @@ public class InitDatabase {
                 entity.setLastname(a.lastname());
                 entity.setDescription(a.description());
                 entity.setImageUrl(a.imageUrl());
+
+                Artist saved = artistRepository.save(entity);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
