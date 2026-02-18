@@ -44,6 +44,7 @@ public class InitDatabase {
                 entity.setFirstname(a.firstname());
                 entity.setLastname(a.lastname());
                 entity.setDescription(a.description());
+                entity.setImageUrl(a.imageUrl());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
