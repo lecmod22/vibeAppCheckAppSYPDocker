@@ -29,7 +29,13 @@ public class InitDatabase {
             return;
         }
 
-        ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+        try {
+            ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
+            List<ArtistJson> artistJson = readList(mapper, "/vibe_artist.json", ArtistJson.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
