@@ -17,7 +17,10 @@ public class InitDatabase {
 
     @PostConstruct
     public void createDataFromFile() {
-
+        if (artistRepository.count() > 0 || eventRepository.count() > 0) {
+            log.info("Database already contains data");
+            return;
+        }
     }
 
 }
