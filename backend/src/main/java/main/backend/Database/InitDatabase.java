@@ -68,7 +68,7 @@ public class InitDatabase {
                             entity.getArtists().add(artist);
                             artist.getEvents().add(entity);
                         } else {
-
+                            log.warn("Event '{}' references unknown artistId={}", e.title(), artistId);
                         }
                     }
                 }
