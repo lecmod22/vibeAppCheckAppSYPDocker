@@ -1,5 +1,6 @@
 package main.backend.Database;
 
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.backend.Repositories.ArtistRepository;
@@ -13,5 +14,10 @@ public class InitDatabase {
 
     private final ArtistRepository artistRepository;
     private final EventRepository eventRepository;
+
+    @PostConstruct
+    public void createDataFromFile() {
+
+    }
 
 }
