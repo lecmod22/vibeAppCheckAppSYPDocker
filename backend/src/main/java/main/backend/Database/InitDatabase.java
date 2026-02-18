@@ -62,7 +62,9 @@ public class InitDatabase {
                 entity.setImageUrl(e.imageUrl());
 
                 if (e.artistIds() != null) {
+                    for (Long artistId : e.artistIds()) {
 
+                    }
                 }
             }
         } catch (IOException e) {
