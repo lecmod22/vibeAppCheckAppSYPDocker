@@ -52,6 +52,10 @@ public class InitDatabase {
                 entity.setImageUrl(a.imageUrl());
 
                 Artist saved = artistRepository.save(entity);
+
+                String fullName = fullName(saved.getFirstname(), saved.getLastname());
+                artistByFullName.put(fullName, saved);
+
             }
 
             log.info("Imported artists: {}", artistByFullName.size());
