@@ -77,13 +77,12 @@ public class InitDatabase {
                         if (artist != null) {
                             entity.getArtists().add(artist);
                             artist.getEvents().add(entity);
-                        } else {
-                            log.warn("Event '{}' references unknown artistId={}", e.title(), artistId);
                         }
                     }
                 }
 
-                eventRepository.save(entity);
+                Event saved = eventRepository.save(entity);
+                if (e.id() != null) eventByJsonId.put(e.id(), saved);
                 eventCount++;
             }
         } catch (IOException e) {
