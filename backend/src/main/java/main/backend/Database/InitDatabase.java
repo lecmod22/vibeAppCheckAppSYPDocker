@@ -65,7 +65,7 @@ public class InitDatabase {
                     for (Long artistId : e.artistIds()) {
                         Artist artist = artistByJsonId.get(artistId);
                         if (artist != null) {
-
+                            entity.getArtists().add(artist);
                         }
                     }
                 }
