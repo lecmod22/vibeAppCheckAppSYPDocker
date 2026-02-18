@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,5 +105,13 @@ public class InitDatabase {
             java.time.LocalDate eventDate,
             String imageUrl,
             List<Long> artistIds
+    ) {}
+
+    public record RatingJson(
+            Long id,
+            Long eventId,
+            int stars,
+            String comment,
+            LocalDateTime createdAt
     ) {}
 }
