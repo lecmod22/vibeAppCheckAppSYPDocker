@@ -38,6 +38,10 @@ public class InitDatabase {
             List<ArtistJson> artistJson = readList(mapper, "/vibe_artist.json", ArtistJson.class);
 
             Map<Long, Artist> artistByJsonId = new HashMap<>();
+
+            for (ArtistJson a : artistJson) {
+
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
