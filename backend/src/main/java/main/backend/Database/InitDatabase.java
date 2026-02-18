@@ -8,6 +8,7 @@ import main.backend.Pojo.Artist;
 import main.backend.Pojo.Event;
 import main.backend.Repositories.ArtistRepository;
 import main.backend.Repositories.EventRepository;
+import main.backend.Repositories.RatingRepository;
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -26,6 +27,7 @@ public class InitDatabase {
 
     private final ArtistRepository artistRepository;
     private final EventRepository eventRepository;
+    private final RatingRepository ratingRepository;
 
     @PostConstruct
     public void createDataFromFile() {
