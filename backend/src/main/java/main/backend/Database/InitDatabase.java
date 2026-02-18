@@ -4,6 +4,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import main.backend.Pojo.Artist;
 import main.backend.Repositories.ArtistRepository;
 import main.backend.Repositories.EventRepository;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
@@ -33,6 +36,8 @@ public class InitDatabase {
             ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
             List<ArtistJson> artistJson = readList(mapper, "/vibe_artist.json", ArtistJson.class);
+
+            Map<Long, Artist> artistByJsonId = new HashMap<>();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
