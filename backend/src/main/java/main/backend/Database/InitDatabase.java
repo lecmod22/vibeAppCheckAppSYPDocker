@@ -28,4 +28,11 @@ public class InitDatabase {
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
     }
 
+    public record ArtistJson(
+            Long id,
+            String firstname,
+            String lastname,
+            String description,
+            String imageUrl
+    ) {}
 }
