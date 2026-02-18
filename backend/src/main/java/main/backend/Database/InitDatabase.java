@@ -5,6 +5,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.backend.Pojo.Artist;
+import main.backend.Pojo.Event;
 import main.backend.Repositories.ArtistRepository;
 import main.backend.Repositories.EventRepository;
 import org.springframework.stereotype.Component;
@@ -54,6 +55,7 @@ public class InitDatabase {
 
             int eventCount = 0;
             for (EventJson e : eventJson) {
+                Event entity = new Event();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
