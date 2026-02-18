@@ -72,6 +72,7 @@ public class InitDatabase {
                         }
                     }
                 }
+                eventRepository.save(entity);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
