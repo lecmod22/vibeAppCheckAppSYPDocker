@@ -58,6 +58,7 @@ public class InitDatabase {
                 Event entity = new Event();
                 entity.setTitle(e.title());
                 entity.setLocation(e.location());
+                entity.setEventDate(e.eventDate());
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
