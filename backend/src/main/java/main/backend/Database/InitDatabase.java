@@ -9,6 +9,8 @@ import main.backend.Repositories.EventRepository;
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.List;
+
 
 @Slf4j
 @Component
@@ -34,5 +36,14 @@ public class InitDatabase {
             String lastname,
             String description,
             String imageUrl
+    ) {}
+
+    public record EventJson(
+            Long id,
+            String title,
+            String location,
+            java.time.LocalDate eventDate,
+            String imageUrl,
+            List<Long> artistIds
     ) {}
 }
