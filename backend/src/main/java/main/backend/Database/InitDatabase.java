@@ -40,7 +40,7 @@ public class InitDatabase {
             Map<Long, Artist> artistByJsonId = new HashMap<>();
 
             for (ArtistJson a : artistJson) {
-
+                Artist entity = new Artist();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
