@@ -43,7 +43,7 @@ public class InitDatabase {
         try {
             ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-            List<ArtistJson> artistJson = readList(mapper, "/vibe_artist.json", ArtistJson.class);
+            List<ArtistJson> artistJson = readListIfExists(mapper, "/vibe_artist.json", ArtistJson.class);
 
             Map<Long, Artist> artistByJsonId = new HashMap<>();
 
@@ -58,7 +58,7 @@ public class InitDatabase {
                 artistByJsonId.put(a.id(), saved);
             }
 
-            List<EventJson> eventJson = readList(mapper, "/vibe_event.json", EventJson.class);
+            List<EventJson> eventJson = readListIfExists(mapper, "/vibe_event.json", EventJson.class);
             if (eventJson == null) throw new IOException("Missing /vibe_event.json");
 
             Map<Long, Event> eventByJsonId = new HashMap<>();
@@ -91,14 +91,17 @@ public class InitDatabase {
     }
 
     private void importRatingsIfFileExists() {
-
+        try {
+            ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+            List<RatingJson> ratingJson = readListIfExists(mapper, "/vibe_rating.json", RatingJson.class);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
-    private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
+    private <T> List<T> readListIfExists(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
         InputStream inputStream = this.getClass().getResourceAsStream(resourcePath);
-        if (inputStream == null) {
-            throw new IOException("Resource not found: " + resourcePath);
-        }
+        if (inputStream == null) return null;
         return mapper.readerForListOf(clazz).readValue(inputStream);
     }
 
