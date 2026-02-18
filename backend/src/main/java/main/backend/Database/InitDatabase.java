@@ -9,6 +9,8 @@ import main.backend.Repositories.EventRepository;
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -28,6 +30,10 @@ public class InitDatabase {
         }
 
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+    }
+
+    private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
+            return null;
     }
 
     public record ArtistJson(
