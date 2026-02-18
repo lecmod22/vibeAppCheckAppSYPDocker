@@ -66,6 +66,7 @@ public class InitDatabase {
                         Artist artist = artistByJsonId.get(artistId);
                         if (artist != null) {
                             entity.getArtists().add(artist);
+                            artist.getEvents().add(entity);
                         }
                     }
                 }
