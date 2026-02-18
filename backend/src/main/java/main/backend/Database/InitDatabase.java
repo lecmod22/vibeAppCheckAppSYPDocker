@@ -34,8 +34,12 @@ public class InitDatabase {
         if (artistRepository.count() > 0 || eventRepository.count() > 0) {
             log.info("Database already contains data");
             return;
+        } else {
+            importArtistsAndEvents();
         }
+    }
 
+    private void importArtistsAndEvents() {
         try {
             ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
