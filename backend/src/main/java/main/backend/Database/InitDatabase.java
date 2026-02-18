@@ -67,6 +67,8 @@ public class InitDatabase {
                         if (artist != null) {
                             entity.getArtists().add(artist);
                             artist.getEvents().add(entity);
+                        } else {
+
                         }
                     }
                 }
