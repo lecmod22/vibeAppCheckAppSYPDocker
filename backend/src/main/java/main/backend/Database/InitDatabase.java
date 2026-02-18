@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.backend.Pojo.Artist;
 import main.backend.Pojo.Event;
+import main.backend.Pojo.Rating;
 import main.backend.Repositories.ArtistRepository;
 import main.backend.Repositories.EventRepository;
 import main.backend.Repositories.RatingRepository;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -32,80 +34,73 @@ public class InitDatabase {
     @PostConstruct
     public void createDataFromFile() {
         if (artistRepository.count() > 0 || eventRepository.count() > 0) {
-            log.info("Database already contains data");
+            log.info("DB already contains data -> skipping JSON import");
             return;
-        } else {
-            importArtistsAndEvents();
         }
-    }
 
-    private void importArtistsAndEvents() {
         try {
             ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-            List<ArtistJson> artistJson = readListIfExists(mapper, "/vibe_artist.json", ArtistJson.class);
+            List<ArtistJson> artistJsonList = readList(mapper, "/vibe_artist.json", ArtistJson.class);
 
-            Map<Long, Artist> artistByJsonId = new HashMap<>();
-
-            for (ArtistJson a : artistJson) {
+            Map<String, Artist> artistByFullName = new HashMap<>();
+            for (ArtistJson a : artistJsonList) {
                 Artist entity = new Artist();
-                entity.setFirstname(a.firstname());
-                entity.setLastname(a.lastname());
+                entity.setFirstname(a.firstName());
+                entity.setLastname(a.lastName());
                 entity.setDescription(a.description());
                 entity.setImageUrl(a.imageUrl());
 
                 Artist saved = artistRepository.save(entity);
-                artistByJsonId.put(a.id(), saved);
             }
 
-            List<EventJson> eventJson = readListIfExists(mapper, "/vibe_event.json", EventJson.class);
-            if (eventJson == null) throw new IOException("Missing /vibe_event.json");
+            log.info("Imported artists: {}", artistByFullName.size());
 
-            Map<Long, Event> eventByJsonId = new HashMap<>();
+            List<EventJson> eventJsonList = readList(mapper, "/vibe_event.json", EventJson.class);
 
             int eventCount = 0;
-            for (EventJson e : eventJson) {
-                Event entity = new Event();
-                entity.setTitle(e.title());
-                entity.setLocation(e.location());
-                entity.setEventDate(e.eventDate());
-                entity.setImageUrl(e.imageUrl());
+            int ratingCount = 0;
 
-                if (e.artistIds() != null) {
-                    for (Long artistId : e.artistIds()) {
-                        Artist artist = artistByJsonId.get(artistId);
+            for (EventJson e : eventJsonList) {
+                Event event = new Event();
+                event.setTitle(e.title());
+                event.setLocation(e.location());
+                event.setEventDate(e.eventDate());
+                event.setImageUrl(e.imageUrl());
+
+                if (e.artists() != null) {
+                    for (String artistName : e.artists()) {
+                        if (artistName == null) continue;
+                        Artist artist = artistByFullName.get(artistName.trim());
                         if (artist != null) {
-                            entity.getArtists().add(artist);
-                            artist.getEvents().add(entity);
+                            event.getArtists().add(artist);
+                            artist.getEvents().add(event);
+                        } else {
+                            log.warn("Event '{}' references unknown artist '{}'", e.title(), artistName);
                         }
                     }
                 }
 
-                Event saved = eventRepository.save(entity);
-                if (e.id() != null) eventByJsonId.put(e.id(), saved);
+                Event savedEvent = eventRepository.save(event);
                 eventCount++;
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
-    private void importRatingsIfFileExists() {
-        try {
-            ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
-            List<RatingJson> ratingJson = readListIfExists(mapper, "/vibe_rating.json", RatingJson.class);
-            if (ratingJson == null) {
-                log.info("No vibe_rating.json found, skipping ratings import (ratings can be created via POST)");
-                return;
-            }
+                if (e.ratings() != null) {
+                    for (RatingJson r : e.ratings()) {
+                        Rating rating = new Rating();
+                        rating.setStars(r.stars());
+                        rating.setComment(r.comment());
+                        rating.setCreatedAt(r.createdAt() != null ? r.createdAt() : LocalDateTime.now());
+                        rating.setEvent(savedEvent);
 
-            List<EventJson> eventJson = readListIfExists(mapper, "/vibe_event.json", EventJson.class);
-            if (eventJson == null) {
-                log.warn("Missing /vibe_event.json -> cannot map ratings to events. Skipping ratings import.");
-                return;
+                        ratingRepository.save(rating);
+                        ratingCount++;
+                    }
+                }
             }
 
-            Map<String, Event> eventKeyToDbEvent = new HashMap<>();
+            log.info("Imported events: {}", eventCount);
+            log.info("Imported ratings: {}", ratingCount);
+
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
@@ -117,27 +112,26 @@ public class InitDatabase {
                 (location == null ? "" : location.trim());
     }
 
-    private <T> List<T> readListIfExists(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
+    private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
         InputStream inputStream = this.getClass().getResourceAsStream(resourcePath);
         if (inputStream == null) return null;
         return mapper.readerForListOf(clazz).readValue(inputStream);
     }
 
     public record ArtistJson(
-            Long id,
-            String firstname,
-            String lastname,
+            String firstName,
+            String lastName,
             String description,
             String imageUrl
     ) {}
 
     public record EventJson(
-            Long id,
             String title,
             String location,
-            java.time.LocalDate eventDate,
+            LocalDate eventDate,
             String imageUrl,
-            List<Long> artistIds
+            List<String> artists,
+            List<RatingJson> ratings
     ) {}
 
     public record RatingJson(
