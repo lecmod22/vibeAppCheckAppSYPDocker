@@ -47,6 +47,7 @@ public class InitDatabase {
                 entity.setImageUrl(a.imageUrl());
 
                 Artist saved = artistRepository.save(entity);
+                artistByJsonId.put(a.id(), saved);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
