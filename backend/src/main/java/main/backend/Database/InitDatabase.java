@@ -63,7 +63,7 @@ public class InitDatabase {
 
                 if (e.artistIds() != null) {
                     for (Long artistId : e.artistIds()) {
-
+                        Artist artist = artistByJsonId.get(artistId);
                     }
                 }
             }
