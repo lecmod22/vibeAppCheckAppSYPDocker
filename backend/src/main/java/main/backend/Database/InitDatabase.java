@@ -53,6 +53,8 @@ public class InitDatabase {
             List<EventJson> eventJson = readList(mapper, "/vibe_event.json", EventJson.class);
 
             int eventCount = 0;
+            for (EventJson e : eventJson) {
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
