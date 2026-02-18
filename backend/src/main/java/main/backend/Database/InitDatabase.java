@@ -33,7 +33,8 @@ public class InitDatabase {
     }
 
     private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
-            return null;
+        InputStream inputStream = this.getClass().getResourceAsStream(resourcePath);
+        return null;
     }
 
     public record ArtistJson(
