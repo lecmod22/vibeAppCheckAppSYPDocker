@@ -98,6 +98,8 @@ public class InitDatabase {
                 log.info("No vibe_rating.json found, skipping ratings import (ratings can be created via POST)");
                 return;
             }
+
+            List<EventJson> eventJson = readListIfExists(mapper, "/vibe_event.json", EventJson.class);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
