@@ -100,6 +100,10 @@ public class InitDatabase {
             }
 
             List<EventJson> eventJson = readListIfExists(mapper, "/vibe_event.json", EventJson.class);
+            if (eventJson == null) {
+                log.warn("Missing /vibe_event.json -> cannot map ratings to events. Skipping ratings import.");
+                return;
+            }
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
