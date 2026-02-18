@@ -34,6 +34,9 @@ public class InitDatabase {
 
     private <T> List<T> readList(ObjectMapper mapper, String resourcePath, Class<T> clazz) throws IOException {
         InputStream inputStream = this.getClass().getResourceAsStream(resourcePath);
+        if (inputStream == null) {
+            throw new IOException("Resource not found: " + resourcePath);
+        }
         return null;
     }
 
