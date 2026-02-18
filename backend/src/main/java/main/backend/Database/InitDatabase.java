@@ -60,6 +60,10 @@ public class InitDatabase {
                 entity.setLocation(e.location());
                 entity.setEventDate(e.eventDate());
                 entity.setImageUrl(e.imageUrl());
+
+                if (e.artistIds() != null) {
+
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
