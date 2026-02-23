@@ -14,3 +14,15 @@ export const getEventById = async (eventId: number): Promise<Event> => {
     const res = await apiClient.get(`/api/events/${eventId}`);
     return res.data;
 };
+
+export const getEventsByArtist = async (
+    artistId: number,
+    params?: {
+        page?: number;
+        size?: number;
+        sort?: string;
+    }
+): Promise<Event[]> => {
+    const res = await apiClient.get(`/api/events/artist/${artistId}`, { params });
+    return res.data.content ?? res.data;
+};
