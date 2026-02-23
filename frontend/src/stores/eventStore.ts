@@ -10,6 +10,9 @@ type EventStore = {
     size: number;
     totalPages: number;
     sort: string;
+
+    loading: boolean;
+    error: string | null;
 };
 
 export const useEventStore = create<EventStore>(() => ({
@@ -19,5 +22,8 @@ export const useEventStore = create<EventStore>(() => ({
     page: 0,
     size: 10,
     totalPages: 0,
-    sort: "eventDate,asc"
+    sort: "eventDate,asc",
+
+    loading: false,
+    error: null
 }));
