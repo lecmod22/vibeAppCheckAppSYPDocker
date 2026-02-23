@@ -9,7 +9,10 @@ import java.util.Set;
 @Entity
 @Table(name = "artists")
 @Data
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "events")
+@EqualsAndHashCode(exclude = "events")
 public class Artist {
 
     @Id
