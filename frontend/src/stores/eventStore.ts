@@ -7,11 +7,13 @@ type EventStore = {
     selectedEvent: Event | null;
 
     page: number;
+    size: number;
 };
 
 export const useEventStore = create<EventStore>(() => ({
     events: [],
     selectedEvent: null,
 
-    page: 0
+    page: 0,
+    size: 10
 }));
