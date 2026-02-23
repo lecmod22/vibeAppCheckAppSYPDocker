@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import type { Event } from "../common/model";
-import {getEvents} from "../services/eventService.ts";
+import {getEvents, getEventsByArtist} from "../services/eventService.ts";
 
 
 type EventStore = {
@@ -16,6 +16,7 @@ type EventStore = {
     error: string | null;
 
     fetchEvents: () => Promise<void>;
+    fetchEventsByArtist: (artistId: number) => Promise<void>;
 };
 
 export const useEventStore = create<EventStore>((set, get) => ({
@@ -46,6 +47,24 @@ export const useEventStore = create<EventStore>((set, get) => ({
                 error: "Failed to load events",});
         } finally {
             set({loading: false})
+        }
+    },
+
+    fetchEventsByArtist: async (artistId: number) => {
+        const { page, size, sort } = get();
+        set({ loading: true, error: null });
+
+        try {
+            const data = await getEventsByArtist(artistId, { page, size, sort });
+            set({
+                events: data,
+                loading: false,
+            });
+        } catch (err) {
+            console.log(err)
+            set({error: "Failed to load events by artist",});
+        } finally {
+            set({loading: false});
         }
     },
 }));
