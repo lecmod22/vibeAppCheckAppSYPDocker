@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import type { Event } from "../common/model";
-import {getEvents, getEventsByArtist} from "../services/eventService.ts";
+import {getEventById, getEvents, getEventsByArtist} from "../services/eventService.ts";
 
 
 type EventStore = {
@@ -17,6 +17,7 @@ type EventStore = {
 
     fetchEvents: () => Promise<void>;
     fetchEventsByArtist: (artistId: number) => Promise<void>;
+    fetchEventById: (eventId: number) => Promise<void>;
 };
 
 export const useEventStore = create<EventStore>((set, get) => ({
@@ -43,8 +44,7 @@ export const useEventStore = create<EventStore>((set, get) => ({
             });
         } catch (err) {
             console.log(err)
-            set({
-                error: "Failed to load events",});
+            set({error: "Failed to load events"});
         } finally {
             set({loading: false})
         }
@@ -62,7 +62,24 @@ export const useEventStore = create<EventStore>((set, get) => ({
             });
         } catch (err) {
             console.log(err)
-            set({error: "Failed to load events by artist",});
+            set({error: "Failed to load events by artist"});
+        } finally {
+            set({loading: false});
+        }
+    },
+
+    fetchEventById: async (eventId: number) => {
+        set({ loading: true, error: null });
+
+        try {
+            const data = await getEventById(eventId);
+            set({
+                selectedEvent: data,
+                loading: false,
+            });
+        } catch (err) {
+            console.log(err)
+            set({error: "Failed to load event"});
         } finally {
             set({loading: false});
         }
