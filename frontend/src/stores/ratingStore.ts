@@ -1,6 +1,6 @@
 import { create } from "zustand";
-import type {Rating } from "../common/model";
-import {getRatingsByEvent} from "../services/ratingService.ts";
+import type {CreateRatingDto, Rating} from "../common/model";
+import {createRating, getRatingsByEvent} from "../services/ratingService.ts";
 
 type RatingStore = {
     ratings: Rating[];
@@ -9,6 +9,8 @@ type RatingStore = {
     error: string|null;
 
     fetchRatings: (eventId: number) => Promise<void>;
+
+    addRating: (eventId: number, data: CreateRatingDto) => Promise<void>;
 }
 
 export const useRatingStore = create<RatingStore>((set) => ({
@@ -25,6 +27,20 @@ export const useRatingStore = create<RatingStore>((set) => ({
         } catch (err) {
             console.log(err);
             set({error: "Failed to load ratings"});
+        } finally {
+            set({loading: false})
+        }
+    },
+
+    addRating: async (eventId: number, data: CreateRatingDto) => {
+        set({ loading: true, error: null });
+        try {
+            await createRating(eventId, data);
+            const refreshed = await getRatingsByEvent(eventId);
+            set({ ratings: refreshed, loading: false });
+        } catch (err) {
+            console.log(err)
+            set({error: "Failed to add rating"});
         } finally {
             set({loading: false})
         }
