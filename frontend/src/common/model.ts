@@ -23,3 +23,9 @@ export type Rating = {
     comment: string;
     createdAt: string;
 };
+
+
+export type CreateRatingDto = {
+    stars: number;
+    comment: string;
+};
