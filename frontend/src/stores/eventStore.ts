@@ -18,6 +18,8 @@ type EventStore = {
     fetchEvents: () => Promise<void>;
     fetchEventsByArtist: (artistId: number) => Promise<void>;
     fetchEventById: (eventId: number) => Promise<void>;
+
+    setPage: (page: number) => void;
 };
 
 export const useEventStore = create<EventStore>((set, get) => ({
@@ -84,4 +86,6 @@ export const useEventStore = create<EventStore>((set, get) => ({
             set({loading: false});
         }
     },
+
+    setPage: (page: number) => set({page})
 }));
