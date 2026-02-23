@@ -3,8 +3,10 @@ import type {Rating } from "../common/model";
 
 type RatingStore = {
     ratings: Rating[];
+    loading: boolean;
 }
 
 export const useRatingStore = create<RatingStore>(() => ({
-    ratings: []
+    ratings: [],
+    loading: false
 }));
