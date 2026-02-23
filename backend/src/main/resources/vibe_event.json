@@ -102,7 +102,7 @@
     "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=60",
     "artists": ["Nina Lux", "Ivy Moon", "Ava Skye"],
     "ratings": [
-      { "stars": 4, "comment": "Relaxing and classy.", "createdAt": "2025-10-13T09:00:00" }
+      { "stars": 4, "comment": "Relaxing and classy.", "createdAt": "2025-10-13T09:00:00" },
       { "stars": 5, "comment": "Absolutely insane atmosphere!", "createdAt": "2025-10-13T10:15:00" },
       { "stars": 4, "comment": "Great music and lights.", "createdAt": "2025-10-13T11:20:00" }
     ]
