@@ -8,6 +8,7 @@ type EventStore = {
 
     page: number;
     size: number;
+    totalPages: number;
 };
 
 export const useEventStore = create<EventStore>(() => ({
@@ -15,5 +16,6 @@ export const useEventStore = create<EventStore>(() => ({
     selectedEvent: null,
 
     page: 0,
-    size: 10
+    size: 10,
+    totalPages: 0
 }));
