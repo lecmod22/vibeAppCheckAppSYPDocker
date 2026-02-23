@@ -20,6 +20,7 @@ type EventStore = {
     fetchEventById: (eventId: number) => Promise<void>;
 
     setPage: (page: number) => void;
+    setSort: (sort: string) => void;
 };
 
 export const useEventStore = create<EventStore>((set, get) => ({
@@ -87,5 +88,6 @@ export const useEventStore = create<EventStore>((set, get) => ({
         }
     },
 
-    setPage: (page: number) => set({page})
+    setPage: (page: number) => set({page}),
+    setSort: (sort: string) => set({sort})
 }));
