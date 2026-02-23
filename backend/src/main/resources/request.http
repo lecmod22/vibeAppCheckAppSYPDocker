@@ -2,7 +2,7 @@
 GET http://localhost:8081/api/artists
 
 ###
-GET http://localhost:8081/api/artists/{{artistId}}
+GET http://localhost:8081/api/artists/1
 
 ###
 GET http://localhost:8081/api/events?page=0&size=10
