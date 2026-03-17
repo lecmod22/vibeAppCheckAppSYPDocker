@@ -43,4 +43,6 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: ghcr.io/lecmod22/pos-backend:latest
+          tags: ghcr.io/lecmod22/vibeappcheckappsypdocker:latest
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
